@@ -10,3 +10,5 @@ User.hasMany(BlogPost, {
     onDelete: 'CASCADE',
 })
 
+module.exports = {User, BlogPost}
+

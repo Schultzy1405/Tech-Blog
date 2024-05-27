@@ -1,0 +1,38 @@
+<main>
+    <div>
+        <h1>Welcome to the Dashboard!</h1>
+    </div>
+    <div>
+        <h4>Below are you're personal posts. Feel free to take a look at a previous post or go ahead and make a new one!</h4>
+    </div>
+        <div>
+        <h2>Your Blog Posts:</h2>
+        <ul class="blogPosts">
+            {{#each blogPosts}}
+            <li>
+                <h3>{{this.title}}</h3>
+                <p>{{this.description}}</p>
+                <p>By: {{user.name}}</p>
+                <small>{{format_date this.date_created}}</small>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <form id="blog-post-form">
+            <div class="form-group">
+                <label for="blog-title">Title:</label>
+                <input class="form-input" type="text" id="blog-title" name="title" required />
+            </div>
+            <div class="form-group">
+                <label for="blog-description">Description:</label>
+                <input class="form-input" type="text" id="blog-description" name="description" required />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</main>
+<script src="/js/post.js"></script>
+

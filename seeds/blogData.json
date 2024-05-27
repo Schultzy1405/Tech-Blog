@@ -1,0 +1,20 @@
+[
+    {
+        "title":"Blog Post 1",
+        "description": "This is by far the best description ever known to man",
+        "date_created": "12/12/12",
+        "user_id": "1"
+    },
+    {
+        "title":"Blog Post 2",
+        "description": "This is by far the best description ever known to man",
+        "date_created": "11/11/11",
+        "user_id": "2"
+    },
+    {
+        "title":"Blog Post 3",
+        "description": "This is by far the best description ever known to man",
+        "date_created": "10/10/10",
+        "user_id": "1"
+    }
+]

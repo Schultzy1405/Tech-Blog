@@ -26,7 +26,7 @@ router.post('/login', async (req, res) => {
 })
 
 // Sign up route
-router.post('/users', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         console.log(req.body)
       const userData = await User.create(req.body);
@@ -38,6 +38,7 @@ router.post('/users', async (req, res) => {
         res.status(200).json(userData);
       });
     } catch (err) {
+        console.log(err);
       res.status(400).json(err);
     }
   });
