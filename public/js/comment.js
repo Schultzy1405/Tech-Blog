@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.comment-form').forEach(form => {
       form.addEventListener('submit', async (event) => {
           event.preventDefault();
-          const postId = form.querySelector('button').dataset.postId;
+          const postId = form.dataset.postId;
           const author = form.querySelector('input[name="author"]').value;
           const text = form.querySelector('textarea[name="text"]').value;
-
+        
           try {
               const response = await fetch(`/api/blogposts/${postId}/comments`, {
                   method: 'POST',

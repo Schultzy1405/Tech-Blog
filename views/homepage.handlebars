@@ -12,11 +12,12 @@
                 <p>By: {{user.name}}</p>
                 <small>{{format_date this.date_created}}</small>
                 <ul class="comments-list">
-                    {{#each this.comments}}
-                    <li>{{this.text}} - {{this.author}}</li>
-                    {{/each}}
+                {{#each this.comments as |comment|}}
+                <li>{{comment.text}} - {{comment.author}}</li>
+                {{/each}}
                 </ul>
                 <form class="comment-form" data-post-id="{{this.id}}">
+                    <input type="hidden" name="postId" value="{{this.id}}">
                     <input type="text" name="author" placeholder="Your Name">
                     <textarea name="text" placeholder="Your Comment"></textarea>
                     <button type="submit">Submit Comment</button>

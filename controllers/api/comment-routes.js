@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { BlogPost } = require('../../models');
 
-router.post(`/blogposts/${postId}/comments`, async (req, res) => {
+router.post(`/blogposts/:postId/comments`, async (req, res) => {
     try {
         const { postId } = req.params;
         const { author, text } = req.body;

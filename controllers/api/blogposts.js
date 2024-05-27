@@ -56,7 +56,7 @@ router.post('/create-post', withAuth, async (req,res) => {
         res.status(500).json({ message: 'Failed to create post' });
     }
 });
-router.post(`/${postId}/comments`, async (req, res) => {
+router.post(`/blogpost/:postId/comments`, async (req, res) => {
     try {
         const { postId } = req.params;
         const { author, text } = req.body;
@@ -76,7 +76,4 @@ router.post(`/${postId}/comments`, async (req, res) => {
         res.status(500).json({ message: 'Failed to add comment' });
     }
 });
-
-module.exports = router;
-
 module.exports = router;
