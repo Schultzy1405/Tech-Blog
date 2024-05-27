@@ -1,0 +1,125 @@
+* {
+    font-size: medium;
+}
+
+body, html {
+    height: 100%; /* Ensure body and html cover the entire viewport */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-color: rgb(248, 238, 224);
+}
+
+.custom-navbar {
+    background-color: maroon !important;
+}
+
+a {
+    color: white !important;
+    font-family: "Comic Sans MS", cursive;
+}
+
+ul {
+    padding-left: 0;
+}
+
+#welcomeHeader {
+    text-align: center;
+    text-decoration: underline;
+}
+
+#welcomePosts {
+    text-decoration: underline;
+}
+
+#welcomeTip {
+    text-align: center;
+}
+
+.blogPost {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 5px;
+    border-style: solid;
+    margin: 5px;
+    padding: 5px;
+    -webkit-box-shadow: inset 5px 5px 5px 1px rgba(0,0,0,0.22); 
+    box-shadow: inset 5px 5px 5px 1px rgba(0,0,0,0.22);
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+}
+
+#deleteBtn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+#updateBtn {
+    position: absolute;
+    bottom: 5px;
+    right: 85px;
+}
+
+#blogTitle {
+    text-decoration: underline;
+}
+
+#commentId {
+    border: 2px;
+    border-style: solid;
+    list-style-type: none;
+    border-radius: 4px;
+}
+
+#dashboardForm form .form-group {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+#dashboardForm {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#dashboardForm form .form-group label {
+    margin-bottom: 5px;
+}
+
+#dashboardForm form .form-group input[type="text"] {
+    width: 100%;
+}
+
+#dashboardForm form .form-group input[type="text"]#blog-description {
+    height: 75px;
+}
+
+#blog-post-form {
+    display: block;
+    text-align: center;
+}
+
+#commentP {
+    font-size: 18px;
+    padding-top: 25px;
+}
+
+.comment-form input[type="text"],
+.comment-form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+i {
+    font-size: small;
+}
+
+#deleteBtn {
+    align-items: flex-end;
+}
+
+.signup-form {
+    display: block;
+}

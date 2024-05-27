@@ -1,25 +1,28 @@
 <main>
     <div>
-        <h1>Welcome to the Dashboard!</h1>
+        <h1 id="welcomeHeader">Welcome to your Dashboard!</h1>
     </div>
     <div>
-        <h4>Below are you're personal posts. Feel free to take a look at a previous post or go ahead and make a new one!</h4>
+        <h4 id="welcomeTip">Below are you're personal posts. Feel free to take a look at a previous post or go ahead and make a new one!</h4>
     </div>
         <div>
-        <h2>Your Blog Posts:</h2>
+        <h2 id="welcomePosts">Your Blog Posts:</h2>
         <ul class="blogPosts">
             {{#each blogPosts}}
-            <li>
+            <div class="blogPost" data-post-id="{{this.id}}">
                 <h3>{{this.title}}</h3>
                 <p>{{this.description}}</p>
                 <p>By: {{user.name}}</p>
                 <small>{{format_date this.date_created}}</small>
-            </li>
+                <button id="updateBtn" class="updateBtn btn btn-primary" type="update">Update</button>
+                <button id="deleteBtn" class="deleteBtn btn btn-primary" type="delete">Delete</button>
+            </div>
             {{/each}}
         </ul>
     </div>
-    <div class="col-md-6">
+    <div id="dashboardForm" class="col-md-6 text-center">
         <form id="blog-post-form">
+            <p id="commentP">Would you like to create a new post?</p>
             <div class="form-group">
                 <label for="blog-title">Title:</label>
                 <input class="form-input" type="text" id="blog-title" name="title" required />

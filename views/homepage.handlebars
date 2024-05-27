@@ -1,28 +1,29 @@
 <main>
     <div>
-        <h2>Welcome to the Homepage!</h2>
+        <h1 id="welcomeHeader">Welcome to the Homepage!</h2>
     </div>
-    <h4>Below are posts by all users. Feel free to take a look!</h4>
+    <h4 id="welcomeTip">Below are posts by all users. Feel free to take a look!</h4>
     <div>
         <ul class="blogPosts">
             {{#each blogPosts}}
-            <li>
-                <h3>{{this.title}}</h3>
+             <div class="blogPost">
+                <h3 id="blogTitle">{{this.title}}</h3>
                 <p>{{this.description}}</p>
-                <p>By: {{user.name}}</p>
+                <p id="blogTitle">By: {{user.name}}</p>
                 <small>{{format_date this.date_created}}</small>
                 <ul class="comments-list">
                 {{#each this.comments as |comment|}}
-                <li>{{comment.text}} - {{comment.author}}</li>
+                <li id="commentId">{{comment.text}} <i>comment by</i>  {{comment.author}}</li>
                 {{/each}}
                 </ul>
                 <form class="comment-form" data-post-id="{{this.id}}">
+                    <p id="commentP">Would you like to leave a comment?</p>
                     <input type="hidden" name="postId" value="{{this.id}}">
                     <input type="text" name="author" placeholder="Your Name">
                     <textarea name="text" placeholder="Your Comment"></textarea>
                     <button type="submit">Submit Comment</button>
                 </form>
-            </li>
+            </div>
             {{/each}}
         </ul>
     </div>

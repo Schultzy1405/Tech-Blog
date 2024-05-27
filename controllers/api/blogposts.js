@@ -76,4 +76,46 @@ router.post('/:postId/comments', async (req, res) => {
         res.status(500).json({ message: 'Failed to add comment' });
     }
 });
+
+router.delete('/:postId', async (req, res) => {
+    try {
+        const postId = req.params.postId;
+        const deletedPost = await BlogPost.destroy({
+            where: {
+                id: postId
+            }
+        });
+
+        if (deletedPost) {
+            res.status(200).json({ message: 'Post deleted successfully' });
+        } else {
+            res.status(404).json({ message: 'Post not found' });
+        }
+    } catch (err) {
+        console.error('Error deleting post:', err);
+        res.status(500).json({ message: 'Failed to delete post' });
+    }
+});
+
+router.put('/:postId', async (req, res) => {
+    try {
+        const postId = req.params.postId;
+        const { title, description } = req.body;
+
+        const updatedPost = await BlogPost.update(
+            { title, description },
+            { where: { id: postId } }
+        );
+
+        if (updatedPost[0] === 1) {
+            res.status(200).json({ message: 'Post updated successfully' });
+        } else {
+            res.status(404).json({ message: 'Post not found' });
+        }
+    } catch (err) {
+        console.error('Error updating post:', err);
+        res.status(500).json({ message: 'Failed to update post' });
+    }
+});
+
 module.exports = router;
