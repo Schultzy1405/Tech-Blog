@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const postId = form.dataset.postId;
           const author = form.querySelector('input[name="author"]').value;
           const text = form.querySelector('textarea[name="text"]').value;
-        
+
           try {
               const response = await fetch(`/api/blogposts/${postId}/comments`, {
                   method: 'POST',
@@ -17,9 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
               if (response.ok) {
                   const data = await response.json();
-                  const commentList = form.nextElementSibling;
-                  commentList.innerHTML += `<li>${text} - ${author}</li>`;
-                  form.reset(); // Clear the form after submission
+                  const commentList = form.parentElement.querySelector('.comment-list');
+
+                  if (commentList) {
+                      commentList.innerHTML += `<li>${data.text} - ${data.author}</li>`;
+                      form.reset(); // Clear the form after submission
+                  } else {
+                      console.error('Comment list not found');
+                      console.log(form.parentElement); // Output the parent element for debugging
+                  }
               } else {
                   console.error('Failed to submit comment');
               }

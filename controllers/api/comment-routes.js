@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const { BlogPost } = require('../../models');
+const { BlogPost, Comment } = require('../../models');
 
-router.post(`/blogposts/:postId/comments`, async (req, res) => {
+router.post(`/:postId/comments`, async (req, res) => {
     try {
         const { postId } = req.params;
         const { author, text } = req.body;
@@ -12,7 +12,21 @@ router.post(`/blogposts/:postId/comments`, async (req, res) => {
             return res.status(404).json({ message: 'Blog post not found' });
         }
 
-        blogPost.comments.push({ author, text });
+        // Initialize comments array if it's null
+        if (!blogPost.comments) {
+            blogPost.comments = [];
+        }
+
+        // Create a new comment object
+        const newComment = {
+            author,
+            text
+        };
+
+        // Push the new comment into the comments array
+        blogPost.comments.push(newComment);
+
+        // Save the updated blog post with the new comment
         await blogPost.save();
 
         res.status(201).json({ message: 'Comment added successfully', author, text });
